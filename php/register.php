@@ -121,7 +121,7 @@
           <label for="user_pass" class="form-label">
             <i class="fa-solid fa-lock"></i> Password
           </label>
-          <input type="password" name="user_pass" class="form-control" id="user_pass" required>
+          <input type="password" name="user_pass" class="form-control" id="user_pass" maxlength="10" required>
           <div id="passwordHelp" class="form-text">Introduce una contraseña</div>
         </div>
 

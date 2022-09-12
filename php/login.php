@@ -18,7 +18,11 @@
       // login ok -> asignamos la variable de sesión y redirección hacia welcome.php
       $_SESSION["user"] = $name;
       $_SESSION["login_error"] = 3;
-      header("location: welcome.php?user_name=$name");
+      if($name == "admin"){
+        header("location: admin.php");
+      } else{
+        header("location: welcome.php?user_name=$name");
+      }
     } 
     else 
     {
@@ -32,7 +36,9 @@
       }
       else{
         $_SESSION["login_error"] = 3;
-        echo "Superado el límite máximo de inicios de sesión, volviendo a la pantalla de login...";
+        echo "<div class='text-center mt-5 alert alert-danger' role='alert'>
+          <h2>Superado el número máximo de intentos de login. Volviendo a la página de inicio...</h2>
+        </div>";
         echo "<script>
                   setTimeout(() => window.location = '../index.php',3000);
              </script>";
@@ -47,3 +53,18 @@
   }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+  
+</body>
+</html>
